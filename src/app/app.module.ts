@@ -7,7 +7,7 @@ import { AppComponent } from './app.component';
 import { DetalleComponent } from './components/detalle/detalle.component';
 import { HeaderComponent } from './components/header/header.component';
 import { HomeComponent } from './components/home/home.component';
-import { ProductoComponent } from './components/producto/producto.component';
+import { InstrumentosComponent } from './components/instrumentos/instrumentos.component';
 import { DondeEstamosComponent } from './components/donde-estamos/donde-estamos.component';
 import { HttpClientModule } from '@angular/common/http'; 
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -18,16 +18,20 @@ import { NgxSpinnerModule } from "ngx-spinner";
 import { ToastrModule } from 'ngx-toastr';
 import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
 import { ListaComponent } from './components/lista/lista.component';
+import { ItemInstrumentoComponent } from './components/item-instrumento/item-instrumento.component';
+import { BuscadorComponent } from './components/buscador/buscador.component';
 @NgModule({
   declarations: [
     AppComponent,
     DetalleComponent,
     HeaderComponent,
     HomeComponent,
-    ProductoComponent,
+    InstrumentosComponent,
     DondeEstamosComponent,
     FormularioComponent,
-    ListaComponent
+    ListaComponent,
+    ItemInstrumentoComponent,
+    BuscadorComponent
   ],
   imports: [
     BrowserModule,

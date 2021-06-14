@@ -23,6 +23,11 @@ export class InstrumentoService {
     return this.http.get<Instrumento>(this.url + '/' + id, { headers: this.header });
   }
 
+  //Obtener un instrumento por marca o modelo
+  getInstrumentoByFiltro(termino: string): Observable<Instrumento[]>{
+    return this.http.get<Instrumento[]>(this.url + '/filtro?termino=' + termino, {headers: this.header} )
+  }
+
   //Crear un instrumento
   create(instrumento: Instrumento): Observable<Instrumento> {
       return this.http.post<Instrumento>(this.url, instrumento, { headers: this.header });

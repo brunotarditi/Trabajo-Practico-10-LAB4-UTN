@@ -13,8 +13,6 @@ export class ListaComponent implements OnInit {
   instrumentos: Instrumento[];
   constructor(
     private instrumentoService: InstrumentoService,
-    private router: Router,
-    private route: ActivatedRoute
   ) {}
 
   ngOnInit(): void {
