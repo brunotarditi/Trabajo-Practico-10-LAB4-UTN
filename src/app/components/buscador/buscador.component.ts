@@ -15,7 +15,6 @@ import { InstrumentoService } from 'src/app/services/instrumento.service';
 })
 export class BuscadorComponent implements OnInit {
   instrumentosBuscados: Instrumento[];
-  //instrumentos: Instrumento[];
   termino: string;
   constructor(
     private instrumentoService: InstrumentoService,
@@ -24,30 +23,20 @@ export class BuscadorComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.termino = this.route.snapshot.params['termino'];
     this.findByFiltro();
   }
   
   findByFiltro(): void {
-    this.instrumentoService
+    this.route.params.subscribe(params => {
+      this.termino = params['termino'];
+      this.instrumentoService
       .getInstrumentoByFiltro(this.termino)
       .subscribe((data) => {
         this.instrumentosBuscados = data;
       });
+   })
   }
-
   instrumentoDetalle(id: number): void {
     this.router.navigate(['/detalle', id]);
   }
-
-  // buscarSinApi(): void {
-  //   this.instrumentoService.getAllInstrumentos().subscribe((instrumento) => {
-  //       this.instrumentos = instrumento.filter((instrumento) => {
-  //         return instrumento.marca.toLowerCase().indexOf(this.termino.toLowerCase()) > -1 ||
-  //         instrumento.modelo.toLowerCase().indexOf(this.termino.toLowerCase()) > -1 || 
-  //         instrumento.instrumento.toLowerCase().indexOf(this.termino.toLowerCase()) > -1
-  //       })
-  //       console.log(this.instrumentos)
-  //   })
-  // }
 }

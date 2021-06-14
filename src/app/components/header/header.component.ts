@@ -14,9 +14,6 @@ export class HeaderComponent implements OnInit {
 
   volverAProductos(texto: string): void {
     if (texto === '') this.router.navigate(['/instrumentos']);
-  }
-
-  buscarInstrumentos(texto: string): void {
-    this.router.navigate(['/buscador', texto]);
+    else this.router.navigate(['/buscador', texto]);
   }
 }
