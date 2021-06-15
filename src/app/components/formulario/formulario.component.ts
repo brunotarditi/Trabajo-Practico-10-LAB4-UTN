@@ -64,22 +64,20 @@ export class FormularioComponent implements OnInit {
   guardar():void {
     if (this.id > 0) {
         this.instrumentoService.update(this.instrumento, this.id).subscribe((data) => {
+          this.archivoService.upload(this.file).subscribe();
           this.toastr.success('Instrumento actualizado', 'OK',{
             timeOut: 3000
           })
+          this.router.navigate(['/lista']);
         })
-        this.archivoService.upload(this.file).subscribe();
-        this.router.navigate(['/lista']);
     }else {
       this.instrumentoService.create(this.instrumento).subscribe((data) => {
+        this.archivoService.upload(this.file).subscribe();
           this.toastr.success('Instrumento guardado', 'OK',{
             timeOut: 3000
           })
+          this.router.navigate(['/lista']);
         })
-        this.archivoService.upload(this.file).subscribe();
-        this.router.navigate(['/lista']);
     }
-
   }
-
 }

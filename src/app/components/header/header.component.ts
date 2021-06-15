@@ -12,7 +12,7 @@ export class HeaderComponent implements OnInit {
 
   ngOnInit(): void {}
 
-  volverAProductos(texto: string): void {
+  buscarInstrumento(texto: string): void {
     if (texto === '') this.router.navigate(['/instrumentos']);
     else this.router.navigate(['/buscador', texto]);
   }
